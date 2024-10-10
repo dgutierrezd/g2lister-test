@@ -1,79 +1,72 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# G2Lister Test
 
-# Getting Started
+This app is a simple application built using **React Native**.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Features
 
-## Step 1: Start the Metro Server
+- **Authentication**: User can log in depending on his role.
+- **Custom Permissions**: Screens and actions vary depending on the user's role (e.g., `basic_user`, `pro_user`).
+- **Navigation**: Seamless navigation between different screens using React Navigation.
+- **Responsive UI**: Optimized for both Android and iOS devices.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Prerequisites
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Before you begin, ensure you have the following installed on your development environment:
 
-```bash
-# using npm
-npm start
+- [Node.js](https://nodejs.org/) (version 14.x or later)
+- [Yarn](https://yarnpkg.com/) or [npm](https://www.npmjs.com/) (version 6.x or later)
+- [React Native CLI](https://reactnative.dev/docs/environment-setup) for iOS and Android development.
+- [Xcode](https://developer.apple.com/xcode/) (for iOS development)
+- [Android Studio](https://developer.android.com/studio) (for Android development)
 
-# OR using Yarn
-yarn start
-```
+## Installation
 
-## Step 2: Start your Application
+1. Clone the repository:
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+   ```bash
+   git clone https://github.com/dgutierrezd/g2lister-test.git
+   cd g2lister-test
 
-### For Android
+2. Install dependencies:
 
-```bash
-# using npm
-npm run android
+   ```bash
+   yarn install
 
-# OR using Yarn
-yarn android
-```
+3. Install iOS dependencies (macOS only):
 
-### For iOS
+   ```bash
+   cd ios
+   pod install
+   cd ..
 
-```bash
-# using npm
-npm run ios
+## Usage
 
-# OR using Yarn
-yarn ios
-```
+When the app starts, you will be prompted to log in. You can select between different user roles (`basic_user` and `pro_user`), each with its own permissions and accessible screens.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## Authentication
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+The app uses a simple login flow that allows users to choose between `basic_user` and `pro_user`:
 
-## Step 3: Modifying your App
+- **basic_user**: Limited access to certain screens and features.
+- **pro_user**: Full access to all screens and features.
 
-Now that you have successfully run the app, let's modify it.
+## Folder Structure
+.
+├── android                     # Android specific code
+├── ios                         # iOS specific code
+├── src                         # Main source code
+│   ├── components              # Reusable UI components
+│   ├── context                 # Context providers for state management
+│   ├── navigation              # Navigation and routes
+│   ├── screens                 # All the screens (Login, Task List, etc.)
+│   └── config                  # Configuration files (permissions, roles)
+├── App.tsx                     # Entry point of the application
+├── README.md                   # This README file
+└── package.json                # Node.js dependencies and scripts
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## Permissions
+The app dynamically adjusts its screen navigation based on the logged-in user's role. For example:
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+`basic_user`: Can access screens X, Y, and Z.
+`pro_user`: Can access screens Y and Z.
+You can find the permissions setup in `src/config/permissions.ts`.
