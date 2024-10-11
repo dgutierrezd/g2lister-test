@@ -87,7 +87,7 @@ const pickerSelectStyles = StyleSheet.create({
     borderColor: '#ddd',
     borderRadius: 10,
     color: '#333',
-    paddingRight: 30, // to ensure the text is never behind the icon
+    paddingRight: 30,
     backgroundColor: '#fff',
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
